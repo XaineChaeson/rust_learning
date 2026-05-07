@@ -1,0 +1,5 @@
+[package]
+name = "ch06-struct-enum-match"
+edition.workspace = true
+version.workspace = true
+

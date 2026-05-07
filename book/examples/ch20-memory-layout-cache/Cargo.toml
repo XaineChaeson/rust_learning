@@ -1,0 +1,5 @@
+[package]
+name = "ch20-memory-layout-cache"
+edition.workspace = true
+version.workspace = true
+

@@ -1,0 +1,5 @@
+[package]
+name = "ch16-concurrency-primitives"
+edition.workspace = true
+version.workspace = true
+

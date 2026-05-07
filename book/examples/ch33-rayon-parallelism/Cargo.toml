@@ -1,0 +1,4 @@
+[package]
+name = "ch33-rayon-parallelism"
+edition.workspace = true
+version.workspace = true

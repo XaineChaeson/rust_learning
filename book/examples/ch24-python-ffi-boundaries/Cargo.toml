@@ -1,0 +1,5 @@
+[package]
+name = "ch24-python-ffi-boundaries"
+edition.workspace = true
+version.workspace = true
+

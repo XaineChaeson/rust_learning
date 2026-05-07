@@ -1,0 +1,5 @@
+[package]
+name = "ch31-final-architecture"
+edition.workspace = true
+version.workspace = true
+

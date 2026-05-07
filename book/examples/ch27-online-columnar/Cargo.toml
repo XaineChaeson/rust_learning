@@ -1,0 +1,4 @@
+[package]
+name = "ch27-online-columnar"
+edition.workspace = true
+version.workspace = true

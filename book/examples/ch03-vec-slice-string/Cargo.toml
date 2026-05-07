@@ -1,0 +1,5 @@
+[package]
+name = "ch03-vec-slice-string"
+edition.workspace = true
+version.workspace = true
+

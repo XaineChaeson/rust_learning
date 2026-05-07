@@ -1,0 +1,4 @@
+[package]
+name = "ch21-numerical-kernel"
+edition.workspace = true
+version.workspace = true

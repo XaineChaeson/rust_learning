@@ -1,0 +1,5 @@
+[package]
+name = "ch02-values-types-functions"
+edition.workspace = true
+version.workspace = true
+

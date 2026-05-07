@@ -1,0 +1,5 @@
+[package]
+name = "ch09-modules-crates"
+edition.workspace = true
+version.workspace = true
+

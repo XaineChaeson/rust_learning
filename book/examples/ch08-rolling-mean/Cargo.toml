@@ -1,0 +1,5 @@
+[package]
+name = "ch08-rolling-mean"
+edition.workspace = true
+version.workspace = true
+

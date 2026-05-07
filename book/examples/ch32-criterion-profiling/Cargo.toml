@@ -1,0 +1,4 @@
+[package]
+name = "ch32-criterion-profiling"
+edition.workspace = true
+version.workspace = true

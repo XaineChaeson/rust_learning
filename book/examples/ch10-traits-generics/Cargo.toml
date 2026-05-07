@@ -1,0 +1,5 @@
+[package]
+name = "ch10-traits-generics"
+edition.workspace = true
+version.workspace = true
+

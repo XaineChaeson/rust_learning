@@ -1,0 +1,4 @@
+[package]
+name = "ch22-parallel-computing"
+edition.workspace = true
+version.workspace = true

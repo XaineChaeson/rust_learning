@@ -1,0 +1,5 @@
+[package]
+name = "ch13-memory-drop-raii"
+edition.workspace = true
+version.workspace = true
+

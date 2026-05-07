@@ -1,0 +1,4 @@
+[package]
+name = "ch26-experiment-monte-carlo"
+edition.workspace = true
+version.workspace = true

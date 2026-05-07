@@ -1,0 +1,5 @@
+[package]
+name = "ch17-async-boundaries"
+edition.workspace = true
+version.workspace = true
+

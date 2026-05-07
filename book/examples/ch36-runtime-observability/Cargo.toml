@@ -1,0 +1,4 @@
+[package]
+name = "ch36-runtime-observability"
+edition.workspace = true
+version.workspace = true

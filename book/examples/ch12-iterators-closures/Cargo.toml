@@ -1,0 +1,5 @@
+[package]
+name = "ch12-iterators-closures"
+edition.workspace = true
+version.workspace = true
+

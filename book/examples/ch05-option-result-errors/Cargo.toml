@@ -1,0 +1,5 @@
+[package]
+name = "ch05-option-result-errors"
+edition.workspace = true
+version.workspace = true
+

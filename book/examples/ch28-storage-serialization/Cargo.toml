@@ -1,0 +1,5 @@
+[package]
+name = "ch28-storage-serialization"
+edition.workspace = true
+version.workspace = true
+

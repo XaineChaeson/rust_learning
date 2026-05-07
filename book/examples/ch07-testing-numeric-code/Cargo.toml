@@ -1,0 +1,5 @@
+[package]
+name = "ch07-testing-numeric-code"
+edition.workspace = true
+version.workspace = true
+

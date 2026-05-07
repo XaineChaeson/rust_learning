@@ -1,0 +1,5 @@
+[package]
+name = "ch11-lifetimes-api-design"
+edition.workspace = true
+version.workspace = true
+

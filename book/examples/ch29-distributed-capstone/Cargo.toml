@@ -1,0 +1,4 @@
+[package]
+name = "ch29-distributed-capstone"
+edition.workspace = true
+version.workspace = true

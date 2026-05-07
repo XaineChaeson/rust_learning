@@ -1,0 +1,5 @@
+[package]
+name = "ch04-ownership-borrowing"
+edition.workspace = true
+version.workspace = true
+

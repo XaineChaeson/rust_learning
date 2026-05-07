@@ -1,0 +1,7 @@
+[package]
+name = "quant-lab-engine"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+factor-core = { path = "../01-factor-core" }

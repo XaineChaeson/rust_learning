@@ -1,0 +1,4 @@
+[package]
+name = "ch34-python-extension-boundary"
+edition.workspace = true
+version.workspace = true

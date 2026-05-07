@@ -1,0 +1,4 @@
+[package]
+name = "ch37-scheduler-hardening"
+edition.workspace = true
+version.workspace = true

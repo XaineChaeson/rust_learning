@@ -1,0 +1,7 @@
+[package]
+name = "bootstrap-cli"
+version.workspace = true
+edition.workspace = true
+description = "A bootstrapping Rust CLI project used by the learning curriculum."
+
+[dependencies]

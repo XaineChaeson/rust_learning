@@ -1,0 +1,7 @@
+[package]
+name = "factor-core"
+version.workspace = true
+edition.workspace = true
+description = "Rolling factor computation core for the quant Rust curriculum."
+
+[dependencies]

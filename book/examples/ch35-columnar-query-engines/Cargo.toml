@@ -1,0 +1,4 @@
+[package]
+name = "ch35-columnar-query-engines"
+edition.workspace = true
+version.workspace = true
