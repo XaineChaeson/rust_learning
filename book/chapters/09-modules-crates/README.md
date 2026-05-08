@@ -136,6 +136,232 @@ bar.close = 100.0
 
 任何人都能改对象字段。灵活，但长期系统里容易出现“字段被谁改了”的问题。Rust 的 visibility 让你从编译期开始控制访问权限。
 
+## Python subpackage 到 Rust module tree
+
+如果你有 Python package 开发经验，最容易产生的误解是：看到业务逻辑变复杂，就想在 Rust 里继续创建“子 package”。Rust 通常不这样做。
+
+Python 常见结构可能是：
+
+```text
+quant/
+  __init__.py
+  market/
+    __init__.py
+    bar.py
+  factors/
+    __init__.py
+    returns.py
+    volatility.py
+  backtest/
+    __init__.py
+    engine.py
+```
+
+在 Rust 里，如果这些逻辑仍属于同一个稳定编译和发布单元，通常先放进一个 crate 内，用 module tree 表达：
+
+```text
+factor-core/
+  Cargo.toml
+  src/
+    lib.rs
+    market.rs
+    factors/
+      mod.rs
+      returns.rs
+      volatility.rs
+    backtest/
+      mod.rs
+      engine.rs
+```
+
+`src/lib.rs` 是这个 library crate 的入口。它决定哪些模块存在，哪些模块对外公开：
+
+```rust
+pub mod market;
+pub mod factors;
+pub mod backtest;
+```
+
+`src/factors/mod.rs` 是 `factors` 这个模块的入口。它继续声明子模块：
+
+```rust
+pub mod returns;
+mod volatility;
+```
+
+这里的差异很重要：
+
+- `pub mod returns;` 表示外部可以通过 `factor_core::factors::returns` 访问。
+- `mod volatility;` 表示 `volatility` 只是当前 crate 内部模块，不直接公开给外部调用者。
+
+如果 `returns.rs` 里有函数：
+
+```rust
+pub fn close_to_close(previous: f64, current: f64) -> Option<f64> {
+    if previous <= 0.0 {
+        return None;
+    }
+
+    Some(current / previous - 1.0)
+}
+```
+
+外部用户可以这样用：
+
+```rust
+use factor_core::factors::returns::close_to_close;
+```
+
+这和 Python 的 import 很像，但 Rust 多了两个约束：
+
+1. 文件存在不等于模块存在。你必须用 `mod` 或 `pub mod` 把它挂进 module tree。
+2. 模块存在不等于外部可访问。你必须用 `pub` 明确公开。
+
+## `mod`、`pub mod`、`use` 分别做什么
+
+这三个词要分开理解：
+
+| 语法 | 作用 | 类比 |
+| --- | --- | --- |
+| `mod market;` | 声明模块存在，把文件纳入当前 crate 编译 | 告诉 Rust “这里有一个子模块” |
+| `pub mod market;` | 声明模块存在，并把模块名公开给外部 | 公开这个命名空间 |
+| `use crate::market::Bar;` | 把已有路径引入当前作用域，方便书写 | Python 的 `from ... import ...` |
+
+`use` 不会创建模块，也不会改变公开性。它只是让当前文件少写长路径。
+
+例如：
+
+```rust
+use crate::market::Bar;
+```
+
+之后可以写：
+
+```rust
+fn compute(bar: &Bar) {}
+```
+
+而不是每次写：
+
+```rust
+fn compute(bar: &crate::market::Bar) {}
+```
+
+新手常见错误是以为 `use` 能让别人访问你的类型。不能。别人能不能访问，取决于模块和类型本身有没有 `pub`。
+
+## `pub` 的层级：公开模块不等于公开字段
+
+Rust 的公开性是逐层控制的。
+
+```rust
+pub mod market {
+    pub struct Bar {
+        symbol: String,
+        close: f64,
+    }
+}
+```
+
+这段代码表示：
+
+- `market` 模块公开。
+- `Bar` 类型公开。
+- `symbol` 和 `close` 字段不公开。
+
+所以外部可以写：
+
+```rust
+use factor_core::market::Bar;
+```
+
+但不能写：
+
+```rust
+let close = bar.close;
+```
+
+除非你把字段也改成：
+
+```rust
+pub close: f64
+```
+
+不要因为“方便测试”就公开字段。字段一旦公开，外部就可以绕过构造函数和校验，未来你想换存储方式也会变成破坏性改动。
+
+如果只想让同一个 crate 内部可见，可以用更窄的公开性：
+
+```rust
+pub(crate) fn validate_close(close: f64) -> bool {
+    close.is_finite() && close > 0.0
+}
+```
+
+`pub(crate)` 表示整个 crate 内可见，但 crate 外不可见。这适合内部工具函数。
+
+## 什么时候用 module，什么时候拆 crate
+
+不要把 Python subpackage 的直觉直接翻译成多个 Rust package。先问边界是否真的稳定。
+
+继续放在同一个 crate 的信号：
+
+- 只是为了组织文件。
+- 模块之间经常一起修改。
+- 依赖集合基本一样。
+- 不需要单独发布或单独版本。
+- 公开 API 还不稳定。
+
+应该考虑拆成独立 crate 的信号：
+
+- 这个部分会被多个应用复用。
+- 它需要不同依赖，比如 Python binding 需要 PyO3，但核心计算不应该依赖 PyO3。
+- 它有稳定 API，可以作为独立边界测试和 benchmark。
+- 它的编译成本或 feature 开关应该和核心逻辑隔离。
+- 它属于不同变化速度，比如 `factor-core` 很稳定，`factor-python` 会跟 Python packaging 变化。
+
+量化系统里常见的判断是：
+
+```text
+factor-core      # 拆 crate：纯计算核心，少依赖，稳定 API
+factor-python    # 拆 crate：Python 绑定层，依赖 PyO3
+backtest-core    # 可以拆 crate：独立状态机和测试边界
+market::bar      # 通常先做 module：市场数据类型内部层次
+factors::returns # 通常先做 module：因子计算内部层次
+```
+
+也就是说：
+
+```text
+module = 组织代码和可见性
+crate   = 编译、依赖、发布、复用边界
+workspace = 多个 crate 的统一管理边界
+```
+
+## 常见误区
+
+误区 1：文件存在，Rust 就会自动发现。
+
+不会。你创建 `src/factors/returns.rs` 后，还需要在 `src/factors/mod.rs` 或对应父模块里写：
+
+```rust
+pub mod returns;
+```
+
+误区 2：`use` 等于 Python import，会自动加载模块。
+
+不会。`use` 只能引用已经存在于 module tree 的路径。
+
+误区 3：所有模块都 `pub`，开发更快。
+
+短期更快，长期更难维护。`pub` 是 API 承诺。先保持私有，需要外部使用时再公开。
+
+误区 4：目录越多越专业。
+
+不对。Rust 更看重边界是否清楚。一个小 crate 里有清晰的 `market`、`factors`、`risk` 模块，比过早拆成许多 crate 更容易学习和维护。
+
+误区 5：crate 越多越像真实工程。
+
+也不对。拆 crate 会带来依赖管理、版本、feature、编译边界、公开 API 设计成本。没有稳定边界前，先用 module。
+
 ## 逐行理解本章示例
 
 示例路径：
