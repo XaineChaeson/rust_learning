@@ -17,6 +17,7 @@
 
 | 章节 | 状态 | 必跑命令 | 复盘 |
 | --- | --- | --- | --- |
+| 准备 Rust 安装和 Hello World | todo | `cargo run -p ch00-hello-world` |  |
 | 00 学习方法 | todo | 无 |  |
 | 01 Rust 程序形状 | todo | `cargo run -p ch01-rust-program-shape --bin variables` |  |
 | 02 值、类型、函数 | todo | `cargo test -p ch02-values-types-functions` |  |

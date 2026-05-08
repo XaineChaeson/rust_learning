@@ -1,12 +1,12 @@
 # 练习集
 
-练习集中在这里，但代码修改必须进入对应章节的 `book/examples/chXX-*/` 或指定项目。不要跨章乱改。
+练习集中在这里，但代码修改必须进入对应章节目录下的 `example/` 或指定项目。不要跨章乱改。
 
 ## 使用规则
 
 每个练习按三步完成：
 
-1. 找位置：`chXX` 练习只改 `book/examples/chXX-*/`；项目练习只改指定的 `projects/` 目录。
+1. 找位置：`chXX` 练习只改当前章节目录下的 `example/`；项目练习只改指定的 `projects/` 目录。
 2. 写测试：能写测试的练习必须先补测试或补断言，再实现。
 3. 跑命令：章节练习跑 `book/progress.md` 对应命令；项目练习跑项目级命令。
 
@@ -14,7 +14,7 @@
 
 | 练习类型 | 修改位置 | 验证命令 |
 | --- | --- | --- |
-| `ch01`-`ch37` | `book/examples/chXX-*/` | `cargo test -p chXX-name` 或进度表命令 |
+| `ch00`-`ch37` | 当前章节目录下的 `example/` | `cargo test -p chXX-name` 或进度表命令 |
 | `factor-core` | `projects/01-factor-core/` | `cargo test -p factor-core` 和必要的 `cargo run -p factor-core --release --bin bench` |
 | `quant-lab-engine` | `projects/02-quant-lab-engine/` | `cargo test -p quant-lab-engine` 和 `cargo run -p quant-lab-engine --bin demo` |
 | Production Residency | 以 `projects/02-quant-lab-engine` 为基础的新集成 lane | 见 `book/production-residency.md` |
@@ -23,6 +23,7 @@
 
 ## A. Rust 入门计算
 
+0. `ch00`：把 Hello World 输出改成自己的 Rust 学习目标，运行后再改回或保留有意义的目标。
 1. `ch01`：给 `variables.rs` 增加学习小时数变量并打印。
 2. `ch02`：实现 `min`、`max`、`cumulative_product`。
 3. `ch03`：实现 `take_last(values, n)`，返回 borrowed slice。

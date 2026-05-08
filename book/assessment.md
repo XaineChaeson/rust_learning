@@ -35,24 +35,28 @@
 
 范围：
 
-- `00-learning-method.md`
+- `book/chapters/00-rust-install-hello-world/README.md`
+- `book/chapters/00-learning-method/README.md`
 - `book/README.md`
 - `book/progress.md`
 
 必须能做到：
 
+- 知道如何安装和验证 Rust 工具链。
 - 知道本仓库唯一入口是 `book/README.md`。
-- 知道每章只改自己的 `book/examples/chXX-*`。
+- 知道每章只改自己章节目录下的 `example/`。
 - 知道 `cargo fmt`、`cargo clippy`、`cargo test` 分别证明什么。
 
 验收命令：
 
 ```bash
+cargo run -p ch00-hello-world
 cargo test
 ```
 
 通过标准：
 
+- 能解释 `rustup`、`rustc`、`cargo` 分别负责什么。
 - 能解释 workspace、package、crate 的区别。
 - 能说明为什么本项目不让代码示例散落在多个目录。
 - 能写出自己的每周学习节奏和复盘方式。
@@ -61,7 +65,8 @@ cargo test
 
 范围：
 
-- `01-rust-program-shape.md` 到 `08-rolling-mean-from-python-to-rust.md`
+- `book/chapters/01-rust-program-shape/` 到
+  `book/chapters/08-rolling-mean-from-python-to-rust/`
 
 关键能力：
 
@@ -103,7 +108,8 @@ cargo test -p ch08-rolling-mean
 
 范围：
 
-- `09-modules-crates.md` 到 `18-macros-features-docs.md`
+- `book/chapters/09-modules-crates/` 到
+  `book/chapters/18-macros-features-docs/`
 
 关键能力：
 
@@ -151,7 +157,8 @@ cargo test -p ch18-macros-features-docs --features simd
 
 范围：
 
-- `19-performance-engineering.md` 到 `23-simd-unsafe.md`
+- `book/chapters/19-performance-engineering/` 到
+  `book/chapters/23-simd-unsafe/`
 
 关键能力：
 
@@ -193,7 +200,8 @@ cargo run -p factor-core --release --bin bench
 
 范围：
 
-- `24-python-ffi-boundaries.md` 到 `31-final-architecture.md`
+- `book/chapters/24-python-ffi-boundaries/` 到
+  `book/chapters/31-final-architecture/`
 
 关键能力：
 
@@ -271,7 +279,8 @@ cargo run -p factor-core --release --bin bench
 
 范围：
 
-- `32-criterion-profiling.md` 到 `37-scheduler-hardening.md`
+- `book/chapters/32-criterion-profiling/` 到
+  `book/chapters/37-scheduler-hardening/`
 
 关键能力：
 

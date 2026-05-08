@@ -26,6 +26,7 @@ cargo test
 ## 示例命令
 
 ```bash
+cargo run -p ch00-hello-world
 cargo run -p ch01-rust-program-shape --bin variables
 cargo test -p ch10-traits-generics
 cargo test -p ch20-memory-layout-cache

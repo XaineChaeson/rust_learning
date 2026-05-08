@@ -7,6 +7,10 @@ name = "bootstrap-cli"
 version = "0.1.0"
 
 [[package]]
+name = "ch00-hello-world"
+version = "0.1.0"
+
+[[package]]
 name = "ch01-rust-program-shape"
 version = "0.1.0"
 

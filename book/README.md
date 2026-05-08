@@ -19,8 +19,7 @@ book/
   progress.md            # 每章进度记录
   exercises.md           # 统一练习集
   appendix.md            # 术语、评审、benchmark、项目规格
-  chapters/              # 教科书正文
-  examples/              # 按章节拆分的示例 crate
+  chapters/              # 每章一个目录：README.md 是教材，example/ 是本章示例 crate
 
 projects/
   00-bootstrap-cli/
@@ -30,7 +29,12 @@ projects/
 
 ## 起步命令
 
+如果你还没有安装 Rust，先读：
+
+- [00-rust-install-hello-world](chapters/00-rust-install-hello-world/)
+
 ```bash
+cargo run -p ch00-hello-world
 cargo test
 cargo run -p ch01-rust-program-shape --bin variables
 cargo test -p ch10-traits-generics
@@ -49,62 +53,63 @@ cargo run -p quant-lab-engine --bin demo
 
 ### 第一部分：Rust 零基础到 rolling baseline
 
-1. [00-learning-method.md](chapters/00-learning-method.md)
-2. [01-rust-program-shape.md](chapters/01-rust-program-shape.md)
-3. [02-values-types-functions.md](chapters/02-values-types-functions.md)
-4. [03-vec-slice-string.md](chapters/03-vec-slice-string.md)
-5. [04-ownership-borrowing.md](chapters/04-ownership-borrowing.md)
-6. [05-option-result-errors.md](chapters/05-option-result-errors.md)
-7. [06-struct-enum-match.md](chapters/06-struct-enum-match.md)
-8. [07-testing-numeric-code.md](chapters/07-testing-numeric-code.md)
-9. [08-rolling-mean-from-python-to-rust.md](chapters/08-rolling-mean-from-python-to-rust.md)
+0. [00-rust-install-hello-world](chapters/00-rust-install-hello-world/)
+1. [00-learning-method](chapters/00-learning-method/)
+2. [01-rust-program-shape](chapters/01-rust-program-shape/)
+3. [02-values-types-functions](chapters/02-values-types-functions/)
+4. [03-vec-slice-string](chapters/03-vec-slice-string/)
+5. [04-ownership-borrowing](chapters/04-ownership-borrowing/)
+6. [05-option-result-errors](chapters/05-option-result-errors/)
+7. [06-struct-enum-match](chapters/06-struct-enum-match/)
+8. [07-testing-numeric-code](chapters/07-testing-numeric-code/)
+9. [08-rolling-mean-from-python-to-rust](chapters/08-rolling-mean-from-python-to-rust/)
 
 ### 第二部分：专业 Rust 核心
 
-10. [09-modules-crates.md](chapters/09-modules-crates.md)
-11. [10-traits-generics.md](chapters/10-traits-generics.md)
-12. [11-lifetimes-api-design.md](chapters/11-lifetimes-api-design.md)
-13. [12-iterators-closures.md](chapters/12-iterators-closures.md)
-14. [13-memory-drop-raii.md](chapters/13-memory-drop-raii.md)
-15. [14-collections-bytes.md](chapters/14-collections-bytes.md)
-16. [15-error-architecture.md](chapters/15-error-architecture.md)
-17. [16-concurrency-primitives.md](chapters/16-concurrency-primitives.md)
-18. [17-async-boundaries.md](chapters/17-async-boundaries.md)
-19. [18-macros-features-docs.md](chapters/18-macros-features-docs.md)
+10. [09-modules-crates](chapters/09-modules-crates/)
+11. [10-traits-generics](chapters/10-traits-generics/)
+12. [11-lifetimes-api-design](chapters/11-lifetimes-api-design/)
+13. [12-iterators-closures](chapters/12-iterators-closures/)
+14. [13-memory-drop-raii](chapters/13-memory-drop-raii/)
+15. [14-collections-bytes](chapters/14-collections-bytes/)
+16. [15-error-architecture](chapters/15-error-architecture/)
+17. [16-concurrency-primitives](chapters/16-concurrency-primitives/)
+18. [17-async-boundaries](chapters/17-async-boundaries/)
+19. [18-macros-features-docs](chapters/18-macros-features-docs/)
 
 ### 第三部分：高性能计算核心
 
-20. [19-performance-engineering.md](chapters/19-performance-engineering.md)
-21. [20-memory-layout-cache.md](chapters/20-memory-layout-cache.md)
-22. [21-numerical-kernel.md](chapters/21-numerical-kernel.md)
-23. [22-parallel-computing.md](chapters/22-parallel-computing.md)
-24. [23-simd-unsafe.md](chapters/23-simd-unsafe.md)
+20. [19-performance-engineering](chapters/19-performance-engineering/)
+21. [20-memory-layout-cache](chapters/20-memory-layout-cache/)
+22. [21-numerical-kernel](chapters/21-numerical-kernel/)
+23. [22-parallel-computing](chapters/22-parallel-computing/)
+24. [23-simd-unsafe](chapters/23-simd-unsafe/)
 
 ### 第四部分：量化系统工程
 
-25. [24-python-ffi-boundaries.md](chapters/24-python-ffi-boundaries.md)
-26. [25-backtesting.md](chapters/25-backtesting.md)
-27. [26-experiment-monte-carlo.md](chapters/26-experiment-monte-carlo.md)
-28. [27-online-columnar.md](chapters/27-online-columnar.md)
-29. [28-storage-serialization.md](chapters/28-storage-serialization.md)
-30. [29-distributed-capstone.md](chapters/29-distributed-capstone.md)
-31. [30-observability-config.md](chapters/30-observability-config.md)
-32. [31-final-architecture.md](chapters/31-final-architecture.md)
+25. [24-python-ffi-boundaries](chapters/24-python-ffi-boundaries/)
+26. [25-backtesting](chapters/25-backtesting/)
+27. [26-experiment-monte-carlo](chapters/26-experiment-monte-carlo/)
+28. [27-online-columnar](chapters/27-online-columnar/)
+29. [28-storage-serialization](chapters/28-storage-serialization/)
+30. [29-distributed-capstone](chapters/29-distributed-capstone/)
+31. [30-observability-config](chapters/30-observability-config/)
+32. [31-final-architecture](chapters/31-final-architecture/)
 
 ### 第五部分：生态与生产级扩展
 
-33. [32-criterion-profiling.md](chapters/32-criterion-profiling.md)
-34. [33-rayon-parallelism.md](chapters/33-rayon-parallelism.md)
-35. [34-python-extension-boundary.md](chapters/34-python-extension-boundary.md)
-36. [35-columnar-query-engines.md](chapters/35-columnar-query-engines.md)
-37. [36-runtime-observability.md](chapters/36-runtime-observability.md)
-38. [37-scheduler-hardening.md](chapters/37-scheduler-hardening.md)
+33. [32-criterion-profiling](chapters/32-criterion-profiling/)
+34. [33-rayon-parallelism](chapters/33-rayon-parallelism/)
+35. [34-python-extension-boundary](chapters/34-python-extension-boundary/)
+36. [35-columnar-query-engines](chapters/35-columnar-query-engines/)
+37. [36-runtime-observability](chapters/36-runtime-observability/)
+38. [37-scheduler-hardening](chapters/37-scheduler-hardening/)
 
 ## 每章怎么学
 
 1. 读章节正文，不跳过概念解释。
-2. 跑当前章节 example：`cargo test -p chXX-name`。
-3. 只修改当前章节对应的 `book/examples/chXX-*/`。
+2. 跑当前章节 example：`cargo test -p chXX-name`；如果是 Hello World 章，先跑 `cargo run -p ch00-hello-world`。
+3. 只修改当前章节目录下的 `example/`。
 4. 做 `book/exercises.md` 中对应练习。
 5. 把 `book/progress.md` 的状态改掉，并写复盘。
 6. 跑质量门：

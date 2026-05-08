@@ -137,8 +137,8 @@ cargo run -p factor-core --release --bin bench -- --len 20000 --window 252 --rep
 
 - `projects/02-quant-lab-engine/src/python_boundary.rs`
 - `projects/02-quant-lab-engine/src/columnar.rs`
-- `book/chapters/32-criterion-profiling.md`
-- `book/chapters/37-scheduler-hardening.md`
+- `book/chapters/32-criterion-profiling/README.md`
+- `book/chapters/37-scheduler-hardening/README.md`
 
 ## 6. Capstone 作品能力：20 分
 

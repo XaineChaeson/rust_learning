@@ -6,7 +6,8 @@
 
 | 能力 | 必须能做到 | 对应章节 |
 | --- | --- | --- |
-| Cargo 和 workspace | 能解释 package、crate、bin、lib、test、feature | 01、09、18 |
+| Rust 工具链 | 能安装/更新 Rust，解释 rustup、rustc、cargo 的职责 | 准备 |
+| Cargo 和 workspace | 能解释 package、crate、bin、lib、test、feature | 准备、01、09、18 |
 | 所有权和借用 | 能设计不多拷贝、不悬垂、不泄漏内部状态的 API | 03、04、11、13 |
 | 类型建模 | 能用 struct/enum/match 表达业务状态和非法状态 | 05、06、15 |
 | trait 和泛型 | 能写可替换组件、associated type、generic bound | 10、31 |

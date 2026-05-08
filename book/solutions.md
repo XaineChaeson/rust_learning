@@ -11,9 +11,23 @@
 
 ## A. Rust 入门计算
 
+### A0：`ch00` 修改 Hello World 输出
+
+修改位置：`book/chapters/00-rust-install-hello-world/example/src/main.rs`
+
+检查点：
+
+- 只修改 `println!` 中的字符串内容。
+- 保留 `fn main()` 作为程序入口。
+- 使用 `cargo run -p ch00-hello-world` 验证输出。
+
+专业判断：
+
+- 第一章前的目标不是学习复杂语法，而是确认工具链、workspace 和 Cargo 反馈回路可用。
+
 ### A1：`ch01` 增加学习小时数变量
 
-修改位置：`book/examples/ch01-rust-program-shape/src/bin/variables.rs`
+修改位置：`book/chapters/01-rust-program-shape/example/src/bin/variables.rs`
 
 检查点：
 
@@ -27,7 +41,7 @@
 
 ### A2：`ch02` 实现 `min`、`max`、`cumulative_product`
 
-修改位置：`book/examples/ch02-values-types-functions/src/lib.rs`
+修改位置：`book/chapters/02-values-types-functions/example/src/lib.rs`
 
 检查点：
 
@@ -41,7 +55,7 @@
 
 ### A3：`ch03` 实现 `take_last(values, n)`
 
-修改位置：`book/examples/ch03-vec-slice-string/src/lib.rs`
+修改位置：`book/chapters/03-vec-slice-string/example/src/lib.rs`
 
 检查点：
 
@@ -55,7 +69,7 @@
 
 ### A4：`ch04` 实现 `add_in_place`
 
-修改位置：`book/examples/ch04-ownership-borrowing/src/lib.rs`
+修改位置：`book/chapters/04-ownership-borrowing/example/src/lib.rs`
 
 检查点：
 
@@ -69,7 +83,7 @@
 
 ### A5：`ch05` 增加 NaN、inf、非正价格验证
 
-修改位置：`book/examples/ch05-option-result-errors/src/lib.rs`
+修改位置：`book/chapters/05-option-result-errors/example/src/lib.rs`
 
 检查点：
 
@@ -83,7 +97,7 @@
 
 ### A6：`ch06` 给 `Signal` 增加 `ClosePosition`
 
-修改位置：`book/examples/ch06-struct-enum-match/src/lib.rs`
+修改位置：`book/chapters/06-struct-enum-match/example/src/lib.rs`
 
 检查点：
 
@@ -97,7 +111,7 @@
 
 ### A7：`ch07` 写 `assert_close_vec`
 
-修改位置：`book/examples/ch07-testing-numeric-code/src/lib.rs`
+修改位置：`book/chapters/07-testing-numeric-code/example/src/lib.rs`
 
 检查点：
 
@@ -111,7 +125,7 @@
 
 ### A8：`ch08` 实现增量 `rolling_sum`
 
-修改位置：`book/examples/ch08-rolling-mean/src/lib.rs`
+修改位置：`book/chapters/08-rolling-mean-from-python-to-rust/example/src/lib.rs`
 
 检查点：
 

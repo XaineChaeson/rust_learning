@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "book/examples/ch*",
+    "book/chapters/*/example",
     "projects/00-bootstrap-cli",
     "projects/01-factor-core",
     "projects/02-quant-lab-engine",

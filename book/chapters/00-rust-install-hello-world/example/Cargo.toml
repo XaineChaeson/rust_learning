@@ -1,0 +1,4 @@
+[package]
+name = "ch00-hello-world"
+edition.workspace = true
+version.workspace = true
